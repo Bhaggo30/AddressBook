@@ -2,14 +2,12 @@ import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
 
-class main {
+class Main {
     public static void main(String[] args) {
         System.out.println("Welcome to the address book!");
         ArrayList<Contact> addressBook = new ArrayList<>();
-
         Scanner sc = new Scanner(System.in);
-
-        int op;
+        int op =0;
         do {
             System.out.println("\nMenu:");
             System.out.println("1. Create a new contact");
@@ -20,25 +18,25 @@ class main {
             System.out.println("0. Exit");
             System.out.print("Enter your choice: ");
             int option = sc.nextInt();
-            sc.nextLine();  // Consume newline
+            sc.nextLine();
             switch (option) {
-                case 1 -> {
+                case 1 : {
                     Contact userContact = createNewContact();
                     addressBook.add(userContact);
                 }
-                case 2 -> displayContacts(addressBook);
-                case 3 -> editContact(addressBook);
-                case 4 -> searchByName(addressBook);
-                case 5 -> deleteByName(addressBook);
-                case 0 -> System.out.println("Exiting the address book. Goodbye!");
-                default -> System.out.println("Invalid option. Please try again.");
+                case 2 : displayContacts(addressBook);
+                case 3 : editContact(addressBook);
+                case 4 : searchByName(addressBook);
+                case 5 : deleteByName(addressBook);
+                case 0 : System.out.println("Exiting the address book. Goodbye!");
+                default : System.out.println("Invalid option. Please try again.");
             }
             System.out.print("Press 1 to return to menu or 0 to exit: ");
             op = sc.nextInt();
         } while (op != 0);
     }
 
-    private static void displayContacts(ArrayList<Contact> addressBook) {
+    public static void displayContacts(ArrayList<Contact> addressBook) {
         if (addressBook.isEmpty()) {
             System.out.println("The address book is empty.");
         } else {
@@ -48,7 +46,7 @@ class main {
         }
     }
 
-    private static void deleteByName(ArrayList<Contact> addressBook) {
+    public  static void deleteByName(ArrayList<Contact> addressBook) {
         Scanner s = new Scanner(System.in);
         System.out.print("Enter the first name of the contact you want to delete: ");
         String name = s.nextLine();
@@ -69,7 +67,7 @@ class main {
         }
     }
 
-    private static void searchByName(ArrayList<Contact> addressBook) {
+    public static void searchByName(ArrayList<Contact> addressBook) {
         Scanner s = new Scanner(System.in);
         System.out.print("Enter the first name of the contact you want to search: ");
         String name = s.nextLine();
@@ -88,7 +86,7 @@ class main {
         }
     }
 
-    private static void editContact(ArrayList<Contact> addressBook) {
+    public  static void editContact(ArrayList<Contact> addressBook) {
         Scanner s = new Scanner(System.in);
         System.out.print("Enter the first name of the contact you want to edit: ");
         String name = s.nextLine();
@@ -107,7 +105,7 @@ class main {
         }
     }
 
-    private static void editContactDetails(Contact c) {
+    public  static void editContactDetails(Contact c) {
         Scanner sc = new Scanner(System.in);
         System.out.println("1. Change first name");
         System.out.println("2. Change last name");
@@ -118,46 +116,46 @@ class main {
         System.out.println("7. Change zip code");
         System.out.print("Enter your choice: ");
         int option = sc.nextInt();
-        sc.nextLine();  // Consume newline
+        sc.nextLine();
         switch (option) {
-            case 1 -> {
+            case 1 : {
                 System.out.print("Enter new first name: ");
                 String firstName = sc.nextLine();
                 c.setFirstName(firstName);
             }
-            case 2 -> {
+            case 2 : {
                 System.out.print("Enter new last name: ");
                 String lastName = sc.nextLine();
                 c.setLastName(lastName);
             }
-            case 3 -> {
+            case 3 : {
                 System.out.print("Enter new email: ");
                 String email = sc.nextLine();
                 c.setEmail(email);
             }
-            case 4 -> {
+            case 4 : {
                 System.out.print("Enter new city: ");
                 String city = sc.nextLine();
                 c.setCity(city);
             }
-            case 5 -> {
+            case 5 :{
                 System.out.print("Enter new state: ");
                 String state = sc.nextLine();
                 c.setState(state);
             }
-            case 6 -> {
+            case 6 : {
                 System.out.print("Enter new phone number: ");
                 long phoneNo = sc.nextLong();
                 sc.nextLine();  // Consume newline
                 c.setPhoneNo(phoneNo);
             }
-            case 7 -> {
+            case 7 : {
                 System.out.print("Enter new zip code: ");
                 long zipCode = sc.nextLong();
                 sc.nextLine();  // Consume newline
                 c.setZipCode(zipCode);
             }
-            default -> System.out.println("Invalid option. Please try again.");
+            default : System.out.println("Invalid option. Please try again.");
         }
     }
 
